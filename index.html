@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b16">
+  <title>Klainer Diamond</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="gem">◆</span> KLAINER <b>DIAMOND</b></a>
+    <button class="menu-button" id="menuButton" aria-label="Abrir menú">☰</button>
+    <nav id="mainNav">
+      <a href="#servicios">Servicios</a>
+      <a href="#saldo">Mi saldo</a>
+      <a href="#pedidos">Pedidos</a>
+      <button class="nav-login" id="loginButton">Entrar con Google</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">TU ESPACIO DE SERVICIOS DIGITALES</p>
+        <h1>Todo lo digital,<br><span>en un solo lugar.</span></h1>
+        <p class="intro">Explora los servicios de Klainer Diamond, consulta tus pedidos y administra tu saldo KAL.</p>
+        <a class="primary-button" href="#servicios">Explorar servicios</a>
+      </div>
+      <div class="hero-gem" aria-hidden="true">◆</div>
+    </section>
+
+    <section class="notice">
+      <strong>Versión inicial de demostración</strong>
+      <span>Los pedidos y el saldo se guardan solo en este navegador. Todavía no hay pagos ni cuentas reales conectadas.</span>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="section-heading">
+        <p class="eyebrow">CATÁLOGO</p>
+        <h2>Servicios digitales</h2>
+        <p>Elige un servicio para preparar una solicitud.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service-card">
+          <div class="service-icon">✦</div><h3>Recargas digitales</h3>
+          <p>Solicita una recarga disponible en el catálogo.</p>
+          <button class="outline-button order-service" data-service="Recargas digitales">Solicitar</button>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">▣</div><h3>Tarjetas y códigos</h3>
+          <p>Consulta disponibilidad de códigos digitales.</p>
+          <button class="outline-button order-service" data-service="Tarjetas y códigos">Solicitar</button>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">◈</div><h3>Otros servicios</h3>
+          <p>Cuéntanos qué servicio digital necesitas.</p>
+          <button class="outline-button order-service" data-service="Otros servicios">Solicitar</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="saldo" class="section balance-section">
+      <div>
+        <p class="eyebrow">TU CUENTA</p><h2>Saldo KAL</h2>
+        <p class="muted">Moneda interna de demostración de Klainer Diamond.</p>
+      </div>
+      <div class="balance-card">
+        <span>Saldo de prueba</span>
+        <strong><span id="balance">0</span> <small>KAL</small></strong>
+        <button class="outline-button" id="addCredit">Solicitar añadir créditos</button>
+      </div>
+    </section>
+
+    <section id="pedidos" class="section">
+      <div class="section-heading"><p class="eyebrow">SEGUIMIENTO</p><h2>Mis pedidos</h2></div>
+      <div id="ordersList" class="orders-list"><p class="muted">Todavía no tienes pedidos en este navegador.</p></div>
+    </section>
+
+    <section class="bot-section">
+      <div class="bot-avatar">🤖</div>
+      <div class="bot-content">
+        <p class="eyebrow">ASISTENTE VIRTUAL</p>
+        <h2>Klainer Bot</h2>
+        <p>Haz una pregunta y el asistente te orientará sobre la página.</p>
+        <div class="chat-box">
+          <div id="chatMessages" class="chat-messages"><p class="bot-message">¡Hola! Soy Klainer Bot. ¿Qué deseas saber?</p></div>
+          <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Escribe tu pregunta..." maxlength="250" required>
+            <button class="primary-button" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="admin-section">
+      <div><p class="eyebrow">GESTIÓN</p><h2>Administración</h2><p class="muted">Panel visual de prueba para revisar pedidos y editar precios de muestra.</p></div>
+      <button class="outline-button" id="adminToggle">Abrir panel de demostración</button>
+      <div id="adminPanel" class="admin-panel hidden">
+        <h3>Pedidos recibidos en este navegador</h3>
+        <div id="adminOrders"></div>
+        <h3>Precios de muestra</h3>
+        <label>Recargas digitales (KAL)<input id="priceRecargas" type="number" min="0" value="10"></label>
+        <label>Tarjetas y códigos (KAL)<input id="priceTarjetas" type="number" min="0" value="15"></label>
+        <label>Otros servicios (KAL)<input id="priceOtros" type="number" min="0" value="5"></label>
+        <button class="primary-button" id="savePrices">Guardar precios en este navegador</button>
+        <p class="warning">Este panel NO está protegido. No lo uses para administrar pedidos reales ni publiques información privada. Para un administrador real se necesita un servidor y control de acceso seguro.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand"><span class="gem">◆</span> KLAINER <b>DIAMOND</b></div>
+    <p>Soporte: <a href="tel:51561036">51561036</a></p>
+    <p class="muted">© 2026 Klainer Diamond · Sitio de demostración</p>
+  </footer>
+
+  <dialog id="orderDialog">
+    <form method="dialog" id="orderForm">
+      <button class="close-dialog" aria-label="Cerrar">×</button>
+      <p class="eyebrow">NUEVA SOLICITUD</p><h2 id="dialogTitle">Solicitar servicio</h2>
+      <label>Describe lo que necesitas
+        <textarea id="orderDetails" rows="3" maxlength="500" placeholder="Escribe los detalles de tu solicitud..." required></textarea>
+      </label>
+      <p class="muted small">No escribas contraseñas ni códigos privados.</p>
+      <div class="dialog-actions"><button type="button" class="outline-button" id="cancelOrder">Cancelar</button><button type="submit" class="primary-button">Crear pedido de prueba</button></div>
+    </form>
+  </dialog>
+
+  <script src="script.js"></script>
+</body>
+</html>
